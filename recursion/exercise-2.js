@@ -7,8 +7,8 @@ var product = (function product(a, b) {
 
 console.log(`a) ${product}`);
 
-//Tarefa b)
-var word = (function palindrome(str) {
+//Tarefa b) 
+function palindrome(str) {
     var len = str.length;
     if (len <= 1) {
         return true;
@@ -16,11 +16,31 @@ var word = (function palindrome(str) {
     if (str[0] === str[len - 1]) {
         return palindrome(str.slice(1, len - 1));
     }
-})('arara');
+}
 
-word ? console.log(`b) É palíndromo`) : console.log(`b) Não é palíndromo`);
+var word = 'Arara';
+var check = palindrome(word.toLowerCase());
+
+check ? console.log(`b) ${word} é palíndromo`) : console.log(`b) ${word} não é palíndromo`);
 
 //Tarefa c)
+function charCounter(word, char, count) {
+    if (word.length == 0) {
+        return count;
+    } else {
+        if (word[0] == char) {
+            count += 1;
+        }
+        counter = charCounter(word.slice(1), char, count);
+    }
+    return counter;
+}
+
+var word = 'Arara';
+var char = 'a';
+var counter = charCounter(word.toLowerCase(), char.toLowerCase(), 0);
+
+console.log(`c) A palavra ${word} tem ${counter} letra(s) ${char}`);
 
 //Tarefa d)
 var sum = (function sumDigits(num) {
@@ -38,37 +58,29 @@ var sum = (function sumDigits(num) {
 console.log(`d) ${sum}`);
 
 //Tarefa e)
-function reverseNumber(number) {
-    var revNumber = 0;
-    if (number == 0) {
-        return number;
-    } else {
-        reverseNumber(Math.floor(number / 10));
-        return revNumber = (revNumber * 10) + (number % 10);
-    }
-}
-console.log(reverseNumber(123));
 
 //Tarefa f)
-// function listNumbers(x, y) {
-//     if (x === y) {
-//         return x;
-//     }
-//     if (x < y) {
-//         result = listNumbers(x + 1, y);
-//     }
-//     return result;
-// }
+function listNumbers(a, b) {
+    if (a < b) {
+        prox = +1;
+    } else {
+        prox = -1;
+    }
+    if (a == b) {
+        list.push(a);
+        return;
+    } else {
+        list.push(a);
+    }
+    listNumbers(a + prox, b);
+}
 
-// var x = 1;
-// var y = 3;
-// var listNum = [];
+var list = [];
+var a = 10,
+    b = 5;
+listNumbers(a, b);
 
-// for (i = 0; i < 3; i++) {
-//     listNum[i] = listNumbers(x, y);
-// }
-
-// console.log(`f) ${listNum}`);
+console.log(`f) Lista de ${a} até ${b}: ${list}`);
 
 //Tarefa g)
 var maxDivisor = (function maxCommonDivisor(x, y) {
