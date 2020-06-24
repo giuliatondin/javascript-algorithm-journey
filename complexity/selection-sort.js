@@ -1,22 +1,12 @@
-function insertionSort(arr) {
-    for (i = 1; i < arr.length; i++) {
-        key = arr[i];
-        j = i - 1;
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j = j - 1;
+function selectionSort(arr) {
+    for (i = 0; i < arr.length; i++) {
+        for (j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[i]) {
+                aux = arr[j];
+                arr[j] = arr[i];
+                arr[i] = aux;
+            }
         }
-        arr[j + 1] = key;
-    }
-    return arr;
-}
-
-//Popula array inversamente ordenado
-function inverseElements(sizeArray) {
-    aux = sizeArray;
-    for (i = 0; i < sizeArray; i++) {
-        arr[i] = aux;
-        aux--;
     }
 }
 
@@ -25,6 +15,15 @@ function inOrderElements(sizeArray) {
     aux = sizeArray;
     for (i = 1; i <= sizeArray; i++) {
         arr[i] = i;
+    }
+}
+
+//Popula array inversamente ordenado
+function inverseElements(sizeArray) {
+    aux = sizeArray;
+    for (i = 0; i < sizeArray; i++) {
+        arr[i] = aux;
+        aux--;
     }
 }
 
@@ -40,13 +39,12 @@ function randomElements(sizeArray) {
 var sizeArray = 100; //case tests: 100, 1000, 10000, 50000
 var arr = [];
 
-
 //inOrderElements(sizeArray);
 inverseElements(sizeArray);
 //randomElements(sizeArray);
 
-console.time('insertionSort');
-insertionSort(arr);
-console.timeEnd('insertionSort');
+console.time('selectionSort');
+selectionSort(arr);
+console.timeEnd('selectionSort');
 
 console.log(`Array ordenado: ${arr}`);
