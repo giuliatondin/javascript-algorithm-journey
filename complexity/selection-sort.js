@@ -36,15 +36,15 @@ function randomElements(sizeArray) {
 }
 
 //Compare time execution
-var sizeArray = 100; //case tests: 100, 1000, 10000, 50000
+var sizeArray = 50000; //case tests: 100, 1000, 10000, 50000
 var arr = [];
 
-//inOrderElements(sizeArray);
-inverseElements(sizeArray);
+inOrderElements(sizeArray);
+//inverseElements(sizeArray);
 //randomElements(sizeArray);
 
 console.time('selectionSort');
 selectionSort(arr);
 console.timeEnd('selectionSort');
 
-console.log(`Array ordenado: ${arr}`);
+//console.log(`Array ordenado: ${arr}`);

@@ -2,7 +2,7 @@ function insertionSort(arr) {
     for (i = 1; i < arr.length; i++) {
         key = arr[i];
         j = i - 1;
-        while (j >= 0 && arr[j] > key) {
+        while ((j >= 0) && (arr[j] > key)) {
             arr[j + 1] = arr[j];
             j = j - 1;
         }
@@ -42,11 +42,11 @@ var arr = [];
 
 
 //inOrderElements(sizeArray);
-inverseElements(sizeArray);
-//randomElements(sizeArray);
+//inverseElements(sizeArray);
+randomElements(sizeArray);
 
 console.time('insertionSort');
 insertionSort(arr);
 console.timeEnd('insertionSort');
 
-console.log(`Array ordenado: ${arr}`);
+//console.log(`Array ordenado: ${arr}`);
