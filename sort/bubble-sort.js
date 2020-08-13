@@ -1,16 +1,16 @@
 function bubbleSort(arr) {
     var aux;
     var k = arr.length - 1;
-    for(i = 0; i < arr.length; i++){
-        for(j = 0; j < k; j++){
-            if(arr[j] < arr[j+1]){
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < k; j++) {
+            if (arr[j] > arr[j + 1]) {
                 aux = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = aux;
+                arr[j] = arr[j + 1];
+                arr[j + 1] = aux;
             }
         }
         k--;
-    }    
+    }
 }
 
 //Popula array arranjado aleatoriamente

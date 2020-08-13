@@ -1,3 +1,5 @@
+/* Author: Giulia Tondin Monteiro */
+
 function quickSort(arr, p, r) {
     if (p < r) {
         q = partition(arr, p, r);

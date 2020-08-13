@@ -1,14 +1,14 @@
 function selectionSort(arr) {
-    for (i = 0; i < arr.length-1; ++i) {
+    for (i = 0; i < arr.length - 1; ++i) {
         var min = i;
         for (j = i + 1; j < arr.length; ++j) {
-            if (arr[j] > arr[min]) {
+            if (arr[j] < arr[min]) {
                 min = j;
             }
         }
         var x = arr[i];
         arr[i] = arr[min];
-        arr[min] = x;  
+        arr[min] = x;
     }
 }
 
