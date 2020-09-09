@@ -45,15 +45,13 @@ class BinaryTree {
 
     search(node, data) {
         if (node === null) {
-            console.log(`${data} nao existe`);
-            return null;
+            return 0;
         } else if (data < node.data) {
             return this.search(node.left, data);
         } else if (data > node.data) {
             return this.search(node.right, data);
         } else {
-            console.log(`${data} existe`);
-            return node;
+            return 1;
         }
     }
 
@@ -61,7 +59,6 @@ class BinaryTree {
         return this.root;
     }
 
-    //Tree traversal
     inorder(node) {
         if (node !== null) {
             this.inorder(node.left);
@@ -102,42 +99,37 @@ class BinaryTree {
     }
 }
 
-function cleanArray(arr) {
-    for (var i = 0; i < arr.length; ++i) {
-        arr[i] = arr[i].replace(/(\r)/gm, "")
-    }
-    return arr;
-}
-
 var bin = new BinaryTree();
 var root, pos;
 var operation = [];
-var numOp = lines.length;
 
-for (var i = 0; i < numOp; i++) {
-    operation = lines.shift();
-    operation = cleanArray(operation);
+for (var i = 0; lines[i] !== undefined; i++) {
+    operation = lines[i];
+    root = bin.getRootNode();
     pos = 0;
     if (operation[0] == "I") {
-        if (operation[1] == "N") {
-            root = bin.getRootNode();
+        if (operation[1] != " " && operation[2] == "F") {
             bin.inorder(root);
             console.log("");
         } else {
             bin.insert(operation[2]);
         }
     } else if (operation[0] == "P") {
-        if (operation[1] == "R") {
-            root = bin.getRootNode();
+        if (operation[1] != ' ' && operation[2] == 'E') {
             bin.preorder(root);
             console.log("");
-        } else if (operation[1] == "O") {
-            root = bin.getRootNode();
+        } else if (operation[1] != ' ' && operation [2] == 'S') {
             bin.postorder(root);
             console.log("");
         } else {
-            root = bin.getRootNode();
-            bin.search(root, operation[2]);
+            if (bin.search(root, operation[2])) {
+                console.log(operation[2] + ' existe');
+            } else {
+                console.log(operation[2] + ' nao existe');
+            }
+
         }
     }
 }
+
+console.log("");

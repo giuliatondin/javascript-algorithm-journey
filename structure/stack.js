@@ -6,7 +6,7 @@ class Stack {
         this.items.push(element);
     }
     pop() {
-        return this.isEmpty ? "Underflow" : this.items.pop();
+        return this.items.length == 0 ? "Underflow" : this.items.pop();
     }
     isEmpty() {
         return this.items.length == 0;
