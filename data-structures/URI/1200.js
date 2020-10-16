@@ -24,11 +24,7 @@ class BinaryTree {
     }
 
     insertNode(node, newNode) {
-        var aux1 = newNode.data;
-        aux1 = aux1.toLowerCase();
-        var aux2 = node.data;
-        aux2 = aux2.toLowerCase();
-        if (aux1 < aux2) {
+        if (newNode.data < node.data) {
             if (node.left === null) {
                 node.left = newNode;
             } else {
@@ -45,13 +41,15 @@ class BinaryTree {
 
     search(node, data) {
         if (node === null) {
-            return 0;
+            console.log(`${data} nao existe`);
+            return null;
         } else if (data < node.data) {
             return this.search(node.left, data);
         } else if (data > node.data) {
             return this.search(node.right, data);
         } else {
-            return 1;
+            console.log(`${data} existe`);
+            return node;
         }
     }
 
@@ -59,6 +57,7 @@ class BinaryTree {
         return this.root;
     }
 
+    //Tree traversal
     inorder(node) {
         if (node !== null) {
             this.inorder(node.left);
@@ -102,35 +101,34 @@ class BinaryTree {
 var bin = new BinaryTree();
 var root, pos;
 var operation = [];
+var numOp = lines.length;
 
-for (var i = 0; i < lines.length; i++) {
-    operation = lines[i];
+for (var i = 0; i < numOp; i++) {
+    operation = lines.shift();
     if (operation.length === 0) {
         break;
     }
-    root = bin.getRootNode();
     pos = 0;
-    if (operation[0] == "I") {
-        if (operation[1] != " " && operation[2] == "F") {
+    if (operation[0] === "I") {
+        if (operation[1] == "N") {
+            root = bin.getRootNode();
             bin.inorder(root);
             console.log("");
         } else {
             bin.insert(operation[2]);
         }
     } else if (operation[0] == "P") {
-        if (operation[1] != ' ' && operation[2] == 'E') {
+        if (operation[1] == "R") {
+            root = bin.getRootNode();
             bin.preorder(root);
             console.log("");
-        } else if (operation[1] != ' ' && operation[2] == 'S') {
+        } else if (operation[1] == "O") {
+            root = bin.getRootNode();
             bin.postorder(root);
             console.log("");
         } else {
-            if (bin.search(root, operation[2])) {
-                console.log(operation[2] + ' existe');
-            } else {
-                console.log(operation[2] + ' nao existe');
-            }
-
+            root = bin.getRootNode();
+            bin.search(root, operation[2]);
         }
     }
 }

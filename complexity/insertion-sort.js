@@ -1,3 +1,5 @@
+/* Author: Giulia Tondin Monteiro */
+
 function insertionSort(arr) {
     for (i = 1; i < arr.length; i++) {
         key = arr[i];

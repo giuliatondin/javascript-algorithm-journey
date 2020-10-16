@@ -57,7 +57,21 @@ var sum = (function sumDigits(num) {
 
 console.log(`d) ${sum}`);
 
+
 //Tarefa e)
+function reverseNum(num) {
+    return (
+        parseFloat(
+            num
+            .toString()
+            .split('')
+            .reverse()
+            .join('')
+        ) * Math.sign(num)
+    )
+}
+
+console.log(`e) ${reverseNum(123)}`);
 
 //Tarefa f)
 function listNumbers(a, b) {
@@ -110,3 +124,14 @@ maxElement = maxElementVector(arr, len);
 console.log(`h) ${maxElement}`);
 
 //Tarefa i)
+function searchElement(arr, first, last, number) {
+    if (last < first) return -1;
+    if (arr[first] == number) return first;
+    if (arr[last] == number) return last;
+    return searchElement(arr, first + 1, last - 1, number);
+}
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8]; // 2^3 = 8
+var size = arr.length;
+var number = 6;
+console.log(`i) Posição do elemento ${number} no array: ${searchElement(arr, 0, size - 1, number)}`);

@@ -1,3 +1,5 @@
+/* Author: Giulia Tondin Monteiro */
+
 var input = require('fs').readFileSync('stdin', 'utf8');
 var lines = input.split('\n');
 
@@ -58,7 +60,7 @@ while (loop) {
             arrB[i] = parseInt(lines.shift());
         }
 
-        console.log(mergeArrays(arrA, arrB));
+        console.log(`Array resultante: ${mergeArrays(arrA, arrB)}`);
 
         if (first) {
             lines.shift();

@@ -37,8 +37,8 @@ var result;
 
 inOrderElements(sizeArray);
 
-//result = linearSearch(arr, value);
-result = binSearch(arr, 0, arr.length - 1, value);
+//result = linearSearch(arr, value); // Para executar busca linear
+result = binSearch(arr, 0, arr.length - 1, value); // Para executar busca binária
 
 if (result) {
     console.log('Elemento encontrado');
