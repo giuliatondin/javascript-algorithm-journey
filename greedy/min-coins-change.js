@@ -13,7 +13,7 @@ function sort(coins) {
 }
 
 function findMin(coins, value) {
-    sort(coins); // garante ordenação descrecente
+    sort(coins); //ordena decrescente
     var count = 0;
     for (var i = 0; i < coins.length; i++) {
         while (value >= coins[i]) {
